@@ -71,5 +71,5 @@
 
 <p align="center">
   💬 欢迎交流讨论 · 如果我的项目帮到了你，点个 ⭐ 就是最大的支持<br>
-  <sub>Vibe Coding 中，请勿投喂过多 Bug 🐛</sub>
+  <sub>Vibe Coding 中，请勿投喂过多 Bug 🐛 · 页面由 GitHub Actions 自动刷新</sub>
 </p>
