@@ -1,0 +1,127 @@
+name: Refresh profile activity
+
+on:
+  schedule:
+    - cron: "23 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/profile-activity.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-activity
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the profile repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: main
+
+      - name: Generate dark stats
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2
+        with:
+          card: stats
+          options: >-
+            username=${{ github.repository_owner }}&show_icons=true&hide_border=true&custom_title=GitHub%20Stats&disable_animations=true&bg_color=0d1117&title_color=9aefda&text_color=e6edf3&icon_color=a3adff&ring_color=9aefda
+          path: assets/activity/stats-dark.svg
+          token: ${{ github.token }}
+          core_version: "2.2.1"
+          fail_on_error: "true"
+
+      - name: Generate light stats
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2
+        with:
+          card: stats
+          options: >-
+            username=${{ github.repository_owner }}&show_icons=true&hide_border=true&custom_title=GitHub%20Stats&disable_animations=true&bg_color=ffffff&title_color=087d72&text_color=1f2328&icon_color=626dcc&ring_color=087d72
+          path: assets/activity/stats-light.svg
+          token: ${{ github.token }}
+          core_version: "2.2.1"
+          fail_on_error: "true"
+
+      - name: Generate dark languages
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2
+        with:
+          card: top-langs
+          options: >-
+            username=${{ github.repository_owner }}&layout=compact&langs_count=6&hide_border=true&card_width=330&custom_title=Languages&disable_animations=true&bg_color=0d1117&title_color=9aefda&text_color=e6edf3&icon_color=a3adff&ring_color=9aefda
+          path: assets/activity/langs-dark.svg
+          token: ${{ github.token }}
+          core_version: "2.2.1"
+          fail_on_error: "true"
+
+      - name: Generate light languages
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2
+        with:
+          card: top-langs
+          options: >-
+            username=${{ github.repository_owner }}&layout=compact&langs_count=6&hide_border=true&card_width=330&custom_title=Languages&disable_animations=true&bg_color=ffffff&title_color=087d72&text_color=1f2328&icon_color=626dcc&ring_color=087d72
+          path: assets/activity/langs-light.svg
+          token: ${{ github.token }}
+          core_version: "2.2.1"
+          fail_on_error: "true"
+
+      - name: Generate contribution snakes
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ github.token }}
+          outputs: |
+            assets/activity/snake-dark.svg?palette=github-dark&color_snake=%23a3adff&color_dots=%23151b23,%231a454a,%232d716c,%2358ad9b,%239aefda&color_dot_border=%23263542
+            assets/activity/snake-light.svg?palette=github-light&color_snake=%23626dcc&color_dots=%23ebf0f2,%23c5e9df,%2388ceba,%233fa58c,%23087d72&color_dot_border=%23d5e0e5
+
+      - name: Check generated SVGs
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree
+
+          names = (
+              'stats-dark.svg', 'stats-light.svg',
+              'langs-dark.svg', 'langs-light.svg',
+              'snake-dark.svg', 'snake-light.svg',
+          )
+          for name in names:
+              path = Path('assets/activity') / name
+              content = path.read_text(encoding='utf-8')
+              root = ElementTree.fromstring(content)
+              if root.tag != '{http://www.w3.org/2000/svg}svg':
+                  raise SystemExit(f'Invalid SVG: {name}')
+              if any(phrase in content.lower() for phrase in (
+                  'something went wrong', 'api rate limit exceeded',
+              )):
+                  raise SystemExit(f'Error card returned: {name}')
+              if name.startswith('snake-') and '@keyframes' not in content:
+                  raise SystemExit(f'Missing snake animation: {name}')
+          PY
+
+      - name: Commit the six generated assets
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- \
+            assets/activity/stats-dark.svg \
+            assets/activity/stats-light.svg \
+            assets/activity/langs-dark.svg \
+            assets/activity/langs-light.svg \
+            assets/activity/snake-dark.svg \
+            assets/activity/snake-light.svg
+          if git diff --cached --quiet; then
+            echo "Profile activity is already up to date."
+            exit 0
+          fi
+          git commit -m "chore: refresh profile activity [skip ci]"
+          git push origin HEAD:main

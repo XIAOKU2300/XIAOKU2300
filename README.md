@@ -1,75 +1,99 @@
-<h1 align="center">Hi 👋 我是 弋炎_Aster</h1>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/aster-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/aster-light.svg">
+  <img src="./assets/aster-light.svg" width="100%" alt="Aster / XIAOKU2300 — AI、桌面应用、Android 与混合现实">
+</picture>
 
-<p align="center">
-  <b>高中生 · 机器人生态开发者 · Vibe Coding 深度玩家</b><br>
-  这里是我折腾项目的记录，欢迎来逛逛 ✨
-</p>
+# 弋炎_Aster
 
-<p align="center">
-  <a href="https://sakuya.asia" target="_blank">
-    <img src="https://img.shields.io/badge/青弋Bot-%E5%AE%98%E7%BD%91-6c5ce7?style=for-the-badge&logo=robot&logoColor=white" alt="青弋Bot 官网">
-  </a>
-  <a href="https://github.com/XIAOKU2300?tab=repositories" target="_blank">
-    <img src="https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE%E4%BB%93%E5%BA%93-25%2B-00b894?style=for-the-badge&logo=github&logoColor=white" alt="项目仓库">
-  </a>
-  <img src="https://komarev.com/ghpvc/?username=XIAOKU2300&style=for-the-badge&color=6c5ce7" alt="访问计数">
-</p>
+做 AI 应用、桌面工具和 Android 扩展，也长期维护青弋 Bot。最近在探索虚拟角色、语音交互与混合现实的结合。
 
----
+[Blog ↗](https://xiaoku2300.github.io/) · [青弋 Bot ↗](https://sakuya.asia/) · [All repositories ↗](https://github.com/XIAOKU2300?tab=repositories)
 
-### 🧑‍🚀 关于我
+## Selected work
 
-- 🔭 目前在维护 **[青弋Bot](https://sakuya.asia)** —— 一个功能丰富的 QQ 机器人，已通过官方认证
-- 🧩 活跃于 **AstrBot / YunzaiBot** 机器人插件生态，Python & JavaScript 双修
-- 🎨 折腾 **AI 视觉生成**：基于 Flow2API 接 Gemini / Imagen / Veo，聊天式文生图、图生视频
-- ⚡ **Vibe Coding** 重度用户：先跑起来再说，优化以后再说（如果有以后）
-- 🎮 二次元浓度偏高：东方、Nikke、孤独摇滚……（从仓库名就能看出来）
-- 💬 欢迎交流讨论！有想法、有 Bug，直接开 Issue 或来群里找我
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <sub>01 / DESKTOP · AI</sub>
+      <h3><a href="https://github.com/XIAOKU2300/WineFoxDesktop">WineFox Desktop ↗</a></h3>
+      <p>连接 ComfyUI 的 Windows 图像生成工作台。</p>
+      <p>文生图 / 图生图、LoRA 与工作流管理、任务历史与多人房间；自动更新带签名校验。</p>
+      <sub>Python · Rust · Tauri · ComfyUI</sub>
+    </td>
+    <td width="50%" valign="top">
+      <sub>02 / ANDROID · MUSIC</sub>
+      <h3><a href="https://github.com/XIAOKU2300/Synoc-Music">Synoc Music ↗</a></h3>
+      <p>基于 <a href="https://github.com/lladlam/MeloX-Android">MeloX Android</a> 扩展的音乐客户端。</p>
+      <p>为山灵播放器接入 SyncLink Wi-Fi / 蓝牙控制、设备曲库与 Android 媒体会话。</p>
+      <sub>Kotlin · Jetpack Compose · Media3</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <sub>03 / BOT · SELF-HOSTED</sub>
+      <h3><a href="https://sakuya.asia/">青弋 Bot ↗</a></h3>
+      <p>持续维护的 QQ 机器人，提供游戏数据查询、角色面板与图像渲染。</p>
+      <p>围绕 TRSS-Yunzai / AstrBot 做插件集成、服务部署与日常维护。</p>
+      <sub>Python · JavaScript · Redis · Linux</sub>
+    </td>
+    <td width="50%" valign="top">
+      <sub>04 / GAME · NUMERICAL TOOLS</sub>
+      <h3>EchoMatrix</h3>
+      <p>《鸣潮》声骸与面板评分、伤害模拟和技能时间轴工具。</p>
+      <p>评分服务已落地，角色权重与技能规则持续校验。相关公开组件：<a href="https://github.com/XIAOKU2300/UICoreForEcho">UICoreForEcho</a>。</p>
+      <sub>Python · FastAPI · Web / 开发中</sub>
+    </td>
+  </tr>
+</table>
 
-### 📦 精选项目
+## In the lab
 
-| 项目 | 说明 |
-|------|------|
-| [**青弋Bot**](https://github.com/XIAOKU2300/qingyibot-site) | 🎉 已认证的 QQ 机器人，官网 sakuya.asia，功能全部开源实现 |
-| [**astrbot_plugin_Bettergemini**](https://github.com/XIAOKU2300/astrbot_plugin_Bettergemini) | 🎨 Flow2API 全能视觉插件：AI 智能体原生 Tool 调用，文生图/图生图/文生视频/图生视频，支持 Gemini 2.5/3.0、Imagen 4.0、Veo 3.1 |
-| [**Nikke_Yunzai_Plugin**](https://github.com/XIAOKU2300/Nikke_Yunzai_Plugin) | 💥 适用于 Yunzai 的 Nikke 游戏数据查询插件 |
-| [**YunzaiPlughin**](https://github.com/XIAOKU2300/YunzaiPlughin) | 🧩 个人自用 YunzaiBot 插件 / 配置合集 |
-| [**bili_monitor**](https://github.com/XIAOKU2300/bili_monitor) | 📡 适用于 Gscore 的 Bilibili 直播开播提醒插件 |
-| [**TouhouGuess**](https://github.com/XIAOKU2300/TouhouGuess) | 🌙 猜 zun 绘小游戏，东方人狂喜 |
-| [**astrbot_plugin_genie_tts**](https://github.com/XIAOKU2300/astrbot_plugin_genie_tts) | 🔊 连接本地 genisTTS，拦截 AI 回复进行 TTS 朗读 |
-| [**Bilibili_Video_Parser**](https://github.com/XIAOKU2300/Bilibili_Video_Parser) | 🎬 B 站视频解析，Vibe Code 产物（好用就行，别问代码） |
+**MGFR — AI × Mixed Reality** · 原型开发中
 
-> 还有更多折腾中的小项目散落在仓库里，欢迎翻翻 🗂️
+尝试把 MMD 角色放进真实空间。基础透视叠加与桌面角色渲染已有验证，正在整合头显交互和语音对话。
 
-### 🛠️ 技术栈
+<sub>Unity · C# · OpenXR · ALVR · Python · FastAPI</sub>
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,javascript,html,css,nodejs,git,github,vscode" alt="技术栈" />
-</p>
+**AI Agents & integrations**
 
-<p align="center">
-  <img src="https://img.shields.io/badge/AstrBot-插件开发-8e44ad?style=flat-square" alt="AstrBot">
-  <img src="https://img.shields.io/badge/YunzaiBot-插件开发-16a085?style=flat-square" alt="YunzaiBot">
-  <img src="https://img.shields.io/badge/Flow2API-接口中转-0984e3?style=flat-square" alt="Flow2API">
-  <img src="https://img.shields.io/badge/Gemini%20%2F%20Imagen%20%2F%20Veo-AI%20生成-6c5ce7?style=flat-square" alt="AI 生成">
-</p>
+在 Hermes + Hindsight 上实践长期记忆与工具调用，也做 AstrBot 与 ComfyUI、图像 / 视频模型、TTS 的集成与自托管。
 
-### 📊 GitHub 统计
+<details>
+  <summary>Earlier work / 早期插件</summary>
+
+- [BetterGemini](https://github.com/XIAOKU2300/astrbot_plugin_Bettergemini) — AstrBot 图像与视频生成插件。
+- [Genie TTS](https://github.com/XIAOKU2300/astrbot_plugin_genie_tts) — 本地语音合成接入。
+
+这两个仓库已归档，保留作开发记录。
+
+</details>
+
+## GitHub activity
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-1-psi.vercel.app/api?username=XIAOKU2300&show_icons=true&theme=github_dark&hide_border=true">
-    <img src="https://github-readme-stats-1-psi.vercel.app/api?username=XIAOKU2300&show_icons=true&theme=default&hide_border=true" alt="GitHub Stats">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/activity/stats-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/activity/stats-light.svg">
+    <img src="./assets/activity/stats-light.svg" width="467" alt="GitHub 统计：Stars、提交、PR、Issues、参与项目与等级">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-1-psi.vercel.app/api/top-langs/?username=XIAOKU2300&layout=compact&theme=github_dark&hide_border=true">
-    <img src="https://github-readme-stats-1-psi.vercel.app/api/top-langs/?username=XIAOKU2300&layout=compact&theme=default&hide_border=true" alt="Top Languages">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/activity/langs-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/activity/langs-light.svg">
+    <img src="./assets/activity/langs-light.svg" width="330" alt="公开仓库的主要语言占比">
   </picture>
 </p>
+
+<p align="center"><sub>基于公开活动统计；卡片等级与语言占比仅作展示参考。</sub></p>
+
+### Contribution snake
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/activity/snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/activity/snake-light.svg">
+  <img src="./assets/activity/snake-light.svg" width="100%" alt="贪吃蛇吃掉 XIAOKU2300 最近一年贡献格子的动画">
+</picture>
 
 ---
 
-<p align="center">
-  💬 欢迎交流讨论 · 如果我的项目帮到了你，点个 ⭐ 就是最大的支持<br>
-  <sub>Vibe Coding 中，请勿投喂过多 Bug 🐛 · 页面由 GitHub Actions 自动刷新</sub>
-</p>
+<sub>Linux · Docker · Git · AI-assisted development</sub>
